@@ -5,7 +5,7 @@
 #include "KapalMusuh.cpp"
 #include "KapalPlayer.cpp"
 
-class Map{
+class Map : public Kapal{
 
 protected:
    int sizeX;
@@ -30,8 +30,8 @@ public:
     void setShipsDestroyed(int);
 
     // Others
-    Kapal SpawnShips();
-    void ShowPosition();
+    Kapal SpawnShips(int,int,int,int,int,int);
+    void ShowPosition(Kapal,Kapal);
 
 };
 
