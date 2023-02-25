@@ -46,9 +46,9 @@ kapal Map::SpawnShips(int PosisiPlayerX, int PosisiPlayerY, int ID, int Health, 
     // Parameternya posisi player dan atribute kapal musuh yang bakal di spawn
     int x,y;
     while(true){
-        srand(time(NULL))
-        x = rand()%((2*getSizeX()) + 1) - getSizeX() //membuat nilai x random diantara sizeX dan (-sizeX)
-        y = rand()%((2*getSizeY()) + 1) - getSizeY() //membuat nilai y random diantara sizeY dan (-sizeY)
+        srand(time(NULL));
+        x = rand()%((2*getSizeX()) + 1) - getSizeX(); //membuat nilai x random diantara sizeX dan (-sizeX)
+        y = rand()%((2*getSizeY()) + 1) - getSizeY(); //membuat nilai y random diantara sizeY dan (-sizeY)
         if (x == PosisiPlayerX && y == PosisiPlayerY){
             continue;
         } else {
