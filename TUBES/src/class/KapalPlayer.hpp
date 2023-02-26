@@ -2,7 +2,8 @@
 #include "KapalMusuh.cpp"
 #include "Coordinates.cpp"
 
-class KapalPlayer{
+class KapalPlayer : public Kapal
+{
     public:
     //ctor
     using Kapal::Kapal;
@@ -17,6 +18,4 @@ class KapalPlayer{
     void start();
 
 };
-
-
 
