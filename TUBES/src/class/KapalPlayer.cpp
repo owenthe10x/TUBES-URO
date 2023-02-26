@@ -86,7 +86,7 @@ class KapalPlayer
                 }
             }
 
-            if (heal <= 0){
+            if (health <= 0){
                 a = 10;
             }
                 
