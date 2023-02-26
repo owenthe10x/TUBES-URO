@@ -66,7 +66,7 @@ class KapalPlayer
     {
         int a = 5
         while (a<8){
-            if (helath > 0){
+            if (health > 0){
                 int pilihan;
                 cout<<"Pilih "<<endl;
                 cout<<"1. move"<<endl;
