@@ -18,10 +18,10 @@ class KapalPlayer
     //lainnya
     void kapalPlayer::Shoot(KapalMusuh)// shoot kapal player
     {
-        int dx = position.getX() - Musuh.getPosition().getX(); // diukur jarak x antara musuh dan player
-        int dy = position.getY() - Musuh.getPosition().getY(); // diukur jarak y antara musuh dan player
+        int dx = position.getX() - Musuh.getPosition().getX(); // diukur jarak x antara player dan musuh
+        int dy = position.getY() - Musuh.getPosition().getY(); // diukur jarak y antara player dan musuh
         int dist = sqrt(dx * dx + dy * dy);                     // diukur jarak real antara player dan musuh dengan rumus pythagoras
-        if (dist <= canonRange)                                 // kalau player dalam range shooting musuh, maka akan ditembak secara otomatis
+        if (dist <= canonRange)                                 // kalau musuh dalam range shooting player, maka akan ditembak secara otomatis
         {
             player.decreaseHealth(canonDamage);
             cout << "Musuh menyerang kapal dan mengurangi health kapal menjadi " << player.getHealth() << endl;
@@ -54,10 +54,10 @@ class KapalPlayer
         }
     };
 
-    void KapalPlayer::getDistance() // mengetahui jarak kapal musuh dengan kapal player
+    void KapalPlayer::getDistance() // mengetahui jarak kapal player dengan musuh
     {
-    int dx = position.getX() - Musuh.getPosition().getX(); // diukur jarak x antara musuh dan player
-    int dy = position.getY() - Musuh.getPosition().getY(); // diukur jarak y antara musuh dan player
+    int dx = position.getX() - Musuh.getPosition().getX(); // diukur jarak x antara player dan musuh
+    int dy = position.getY() - Musuh.getPosition().getY(); // diukur jarak y antara player dan musuh
     int dist = sqrt(dx * dx + dy * dy);
     cout << "jarak dengan musuh"<< dist;
     };
