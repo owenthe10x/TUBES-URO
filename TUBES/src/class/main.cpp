@@ -44,6 +44,7 @@ int main(){
             switch(choice)
             {
                 case 4:
+                    cout << "Posisi kapten sedang berada di koordinat: (" << Player.getPosition().getX() << ", " <<  Player.getPosition().getY() << ")" << endl;
                     for(int i = 0; i < sizeof(enemies)/sizeof(enemies[0]); i++){
                         //cout << "Masuk" << endl;
                         if(enemies[i].getID() != 0){

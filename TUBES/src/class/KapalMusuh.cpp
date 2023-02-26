@@ -4,7 +4,7 @@ using namespace std;
 
 int KapalMusuh::shipsCreated = 1;
 
-KapalMusuh::KapalMusuh(int seedX, int seedY):Kapal(KapalMusuh::shipsCreated + 1, Coordinates(seedX, seedY), 50, 3, 10){
+KapalMusuh::KapalMusuh(int seedX, int seedY):Kapal(KapalMusuh::shipsCreated + 1, Coordinates(seedX, seedY), 50, 10, 10){
     // srand(time(0));
     // setPosition(Coordinates((rand() % (30 + 30 + 1)) - 30, (rand() % (30 + 30 + 1)) - 30));
     KapalMusuh::shipsCreated++;
@@ -20,6 +20,7 @@ void KapalMusuh::attackPlayer(Kapal* player) // parameternya kapal player
     //int dist = sqrt(dx * dx + dy * dy);                     // diukur jarak real antara player dan musuh dengan rumus pythagoras
     if (dx <= canonRange && dy <=canonRange)                                 // kalau player dalam range shooting musuh, maka akan ditembak secara otomatis
     {
+        cout << "dx: " << dx << "dy: " << dy << endl;
         player->decreaseHealth(canonDamage);
         cout << "Musuh menyerang kapal dan mengurangi health kapal menjadi " << player->getHealth() << endl;
     }

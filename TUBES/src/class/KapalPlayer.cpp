@@ -1,7 +1,7 @@
 #include "KapalPlayer.hpp"
 
-
-KapalPlayer::KapalPlayer():Kapal(0, Coordinates(0,0), 100, 5, 10){}
+// Membuat Kapal Player
+KapalPlayer::KapalPlayer():Kapal(0, Coordinates(0,0), 100, 15, 10){}
     
 KapalPlayer::~KapalPlayer(){}
 
@@ -21,7 +21,7 @@ void KapalPlayer::Move(){
         switch (arah)
         {
         case 1:
-            newPos.setY(getPosition().getX() - 1);
+            newPos.setX(getPosition().getX() - 1);
             break;
         case 2:
             newPos.setX(getPosition().getX() + 1);
@@ -30,7 +30,7 @@ void KapalPlayer::Move(){
             newPos.setY(getPosition().getY() + 1);
             break;
         case 4:
-            newPos.setX(getPosition().getY() - 1);
+            newPos.setY(getPosition().getY() - 1);
             break;
         default:
             break;
