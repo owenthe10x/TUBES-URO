@@ -1,6 +1,9 @@
 #include "KapalPlayer.hpp"
-#include "KapalMusuh.hpp"
+#include "KapalMusuh.cpp"
+#include "Kapal.cpp"
+#include "Coordinates.cpp"
 #include <iostream>
+
 using namespace std;
 
 //dtor 
