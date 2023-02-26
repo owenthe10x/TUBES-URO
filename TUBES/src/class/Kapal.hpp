@@ -1,6 +1,6 @@
 #ifndef __KAPAL__HPP__
 #define __KAPAL__HPP__
-
+#pragma once
 #include "Coordinates.cpp"
 
 class Kapal{

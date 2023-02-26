@@ -1,6 +1,6 @@
 #ifndef __COORDINATES__HPP__
 #define __COORDINATES__HPP__
-
+#pragma once
 class Coordinates{
 private:
     int x;

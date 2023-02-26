@@ -1,16 +1,17 @@
 #ifndef __MAP__HPP__
 #define __MAP__HPP__
 
-#include "Coordinates.cpp"
-#include "KapalMusuh.cpp"
+#pragma once
 #include "KapalPlayer.cpp"
 
-class Map : public Kapal{
+
+class Map{
 
 protected:
    int sizeX;
    int sizeY;
    int ShipsDestroyed;
+   int EnemyAvailable;
 
 public:
     // ctor

@@ -1,21 +1,21 @@
-#include "Kapal.cpp"
+#pragma once
 #include "KapalMusuh.cpp"
-#include "Coordinates.cpp"
 
 class KapalPlayer : public Kapal
 {
     public:
     //ctor
-    using Kapal::Kapal;
+    KapalPlayer();
 
     //dtor
     ~KapalPlayer();
 
     //others
-    void kapalPlayer::Shoot(KapalMusuh);
-    void KapalPlayer::Move();
-    void KapalPlayer::getDistance();
+    void Shoot(Kapal*);
+    void Move();
+    int getDistance(Kapal);
     void start();
+    bool outOfBounds(Coordinates);
 
 };
 

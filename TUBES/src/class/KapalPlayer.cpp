@@ -1,94 +1,83 @@
 #include "KapalPlayer.hpp"
-#include "KapalMusuh.cpp"
-#include "Kapal.cpp"
-#include "Coordinates.cpp"
-#include <iostream>
 
-using namespace std;
 
-//dtor 
-class KapalPlayer
-    public:
-
-    //dtor
-    KapalPlayer::~KapalPlayer(){
-
-    };
+KapalPlayer::KapalPlayer():Kapal(0, Coordinates(0,0), 100, 5, 10){}
     
-    //lainnya
-    void kapalPlayer::Shoot(KapalMusuh)// shoot kapal player
-    {
-        int dx = position.getX() - Musuh.getPosition().getX(); // diukur jarak x antara musuh dan player
-        int dy = position.getY() - Musuh.getPosition().getY(); // diukur jarak y antara musuh dan player
-        int dist = sqrt(dx * dx + dy * dy);                     // diukur jarak real antara player dan musuh dengan rumus pythagoras
-        if (dist <= canonRange)                                 // kalau player dalam range shooting musuh, maka akan ditembak secara otomatis
+KapalPlayer::~KapalPlayer(){}
+
+void KapalPlayer::Move(){
+    bool flag = false;
+    Coordinates newPos(getPosition().getX(), getPosition().getY());
+    int arah;
+
+    while(!flag){
+        cout<<"Pilih arah Gerak: "<<endl;
+        cout<<"1. kiri"<<endl;
+        cout<<"2. kanan"<<endl;
+        cout<<"3. atas"<<endl;
+        cout<<"4. bawah"<<endl;
+        cout << "Input: ";
+        cin >> arah;
+        switch (arah)
         {
-            player.decreaseHealth(canonDamage);
-            cout << "Musuh menyerang kapal dan mengurangi health kapal menjadi " << player.getHealth() << endl;
+        case 1:
+            newPos.setY(getPosition().getX() - 1);
+            break;
+        case 2:
+            newPos.setX(getPosition().getX() + 1);
+            break;
+        case 3:
+            newPos.setY(getPosition().getY() + 1);
+            break;
+        case 4:
+            newPos.setX(getPosition().getY() - 1);
+            break;
+        default:
+            break;
         }
-    };
-    void KapalPlayer::Move(){ // arah gerak kapal player
-        int arah;
-        cout<<" Arah Gerak"<<endl;
-        cout<<"1. kiri"
-        cout<<"2. kanan"
-        cout<<"3. atas"
-        cout<<"4. bawah"
-        cin>>arah;
 
-        if (arah==1){
-            position.getX() -= 1;
-
+        if(outOfBounds(newPos)){
+            cout << "Tidak dapat bergerak ke arah tersebut karena akan melewati batas!" << endl;
+        }else{
+            setPosition(newPos);
+            flag = true;
         }
-        if (arah==2){
-            position.getX() += 1;
+    }
+    
+}
 
-        }
-        if (arah==3){
-            position.getY() += 1;
+void KapalPlayer::Shoot(Kapal* enemy){
+    enemy->setHealth(enemy->getHealth() - this->getCanonDamage());
+}
 
-        }
-        if (arah==4){
-            position.getX() -= 1;
+int KapalPlayer::getDistance(Kapal enemy){
+    int deltaX = abs(this->getPosition().getX() - enemy.getPosition().getX());
+    int deltaY = abs(this->getPosition().getY() - enemy.getPosition().getY());
 
-        }
-    };
+    if(deltaX >= deltaY){
+        return deltaX;
+    }
+    return deltaY;
+}
 
-    void KapalPlayer::getDistance() // mengetahui jarak kapal musuh dengan kapal player
-    {
-    int dx = position.getX() - Musuh.getPosition().getX(); // diukur jarak x antara musuh dan player
-    int dy = position.getY() - Musuh.getPosition().getY(); // diukur jarak y antara musuh dan player
-    int dist = sqrt(dx * dx + dy * dy);
-    cout << "jarak dengan musuh"<< dist;
-    };
+bool KapalPlayer::outOfBounds(Coordinates pos){
+    if(pos.getX() > 30 || pos.getY() < -30 || pos.getY() > 30 || pos.getY() < -30){
+        return true;
+    }
+    return false;
+}
 
-    void start() // Kapal Player mulai perang
-    {
-        int a = 5
-        while (a<8){
-            if (helath > 0){
-                int pilihan;
-                cout<<"Pilih "<<endl;
-                cout<<"1. move"<<endl;
-                cout<<"2. shoot"<<endl;
-                cout<<"3. stay"<<endl;
-                cin<<pilihan;
-                
-                if (pilihan==1){
-                    KapalPlayer::move();
-                }
-                if (pilihan==2){
-                    KapalPlayer::Shoot();
-                    KapalPlayer::getDistance();
-                }
-                if (pilihan==3){
-                    break;
-                }
-            }
 
-            if (heal <= 0){
-                a = 10;
-            }
-                
-        }
-    };
+
+
+
+
+
+
+
+
+
+
+
+
+
